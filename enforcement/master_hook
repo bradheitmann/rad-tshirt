@@ -1,0 +1,27 @@
+#!/usr/bin/env sh
+# RAD v3.0 TSHIRT master pre-commit hook
+# Portable: use project-relative path
+
+ROOT_DIR=$(git rev-parse --show-toplevel 2>/dev/null)
+if [ -z "$ROOT_DIR" ]; then
+  echo "RAD: Not a git repository (skipping gates)" >&2
+  exit 0
+fi
+ENGINE="$ROOT_DIR/RAD_v3.0_TSHIRT/enforcement/enforcement_engine.js"
+CONFIG="$ROOT_DIR/RAD_v3.0_TSHIRT/enforcement/pre_commit_gates.json"
+
+if [ ! -f "$ENGINE" ]; then
+  echo "RAD: enforcement engine not found at $ENGINE" >&2
+  exit 1
+fi
+
+NODE_BIN="node"
+# Run engine with its config cwd
+cd "$ROOT_DIR/RAD_v3.0_TSHIRT/enforcement" || exit 1
+$NODE_BIN "$ENGINE"
+STATUS=$?
+if [ $STATUS -ne 0 ]; then
+  echo "RAD: pre-commit gates failed (see output above)" >&2
+  exit $STATUS
+fi
+exit 0

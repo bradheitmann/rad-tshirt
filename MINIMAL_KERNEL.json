@@ -1,0 +1,21 @@
+{
+  "version": "3.0-tshirt",
+  "goal": "Keep protocol core under ~1500 tokens while preserving enforcement hooks.",
+  "identity": {
+    "PM": {
+      "tools": {"allow": ["Read", "Grep", "TodoWrite"], "deny": ["Edit", "Write", "Bash", "MultiEdit"], "exceptions": ["Edit:docs/*.md", "Edit:*.md"]},
+      "handoff": "Delegate implementation to LEAD when code change is required"
+    },
+    "LEAD": {"tools": {"allow": ["ALL"], "deny": ["skip_tests", "ignore_lint", "merge_without_review"]}},
+    "QA": {"tools": {"allow": ["Read", "Grep", "WebFetch", "Bash"], "deny": ["Edit", "Write", "MultiEdit", "NotebookEdit"]}}
+  },
+  "context": {
+    "indicator": "|C[{percent}%]{emoji}",
+    "emoji_map": {"0-50": "🟢", "50-80": "🟠", "80-100": "🔴"},
+    "thresholds": [
+      {"at": 80, "action": "efficiency_mode"},
+      {"at": 50, "action": "preparation_mode"},
+      {"at": 30, "action": "mandatory_handoff"}
+    ]
+  }
+}

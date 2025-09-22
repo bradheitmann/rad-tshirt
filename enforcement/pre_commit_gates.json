@@ -1,0 +1,36 @@
+{
+  "name": "PRE_COMMIT_GATES_TSHIRT",
+  "version": "3.0",
+  "description": "Portable pre-commit gates aligned to repo scripts",
+  "execution_order": [
+    "security_scan",
+    "quality_checks",
+    "cleanup_rules",
+    "commit_message"
+  ],
+  "gates": {
+    "quality_checks": {
+      "enabled": true,
+      "required": {
+        "tests_pass": { "command": "npm test", "required": true, "blocking": true },
+        "lint_clean": { "command": "npm run lint", "required": true },
+  "coverage_threshold": { "command": "npm run test:coverage", "required": true, "blocking": false }
+      }
+    },
+    "cleanup_rules": {
+      "remove": {
+        "console_logs": true,
+        "commented_code": true,
+        "debugger": true
+      }
+    },
+    "security_scan": {
+      "enabled": false
+    },
+    "commit_message": {
+      "format": "^(feat|fix|docs|style|refactor|test|chore)\\(.+\\): .+",
+      "max_length": 72,
+      "require_issue": false
+    }
+  }
+}
