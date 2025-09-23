@@ -2,6 +2,18 @@
 
 Portable, brand‑neutral pre‑commit gates + docs + protocols. Drop the folder in, ship with confidence.
 
+Slide index
+- 👕 T‑Shirt Metaphor → #the-t-shirt-metaphor
+- 🔭 Orchestrated vs One Agent → #orchestration-vs-one-agent
+- 💰 Context Budget → #context-is-a-finite-budget
+- 🧭 Delegation Pyramid → #delegation-pyramid
+- 🔄 Context Journey → #context-journey-handoff-triggers
+- 📦 What’s inside → #whats-inside-one-folder
+- 🚀 Quick start → #quick-start
+- 🧠 Multi‑Agent & Lifecycle → #multi-agent--lifecycle
+- ✅ Case studies → #tiny-case-studies
+- 📄 License → #license
+
 Who it’s for → PMs, ICs, QA, and product leads who want batteries‑included quality without wiring CI first.
 What you get → tests/lint/coverage gates, handoff/rehydration protocols, and a zero‑friction installer.
 
@@ -9,13 +21,24 @@ What you get → tests/lint/coverage gates, handoff/rehydration protocols, and a
 
 ## 👕 The T‑Shirt Metaphor
 
-RAD_TSHIRT fits to your team like a great tee:
+Each role is a different t‑shirt you can put on and take off:
 
-- Collar (PM) → direction + shape | orchestration only
-- Fabric (CODEX) → implementation | code + tests + architecture
-- Seams (COPILOT) → automation | git, CI/CD, scripts
-- Tag (FRIDAY) → quality mark | testing, auditing, validation
-- Care label (META) → how to scale | process stewardship
+- PM shirt → Conductor tee | orchestration only (no coding while worn)
+- LEAD shirt → Engineer tee | code + tests + architecture
+- DEV shirt → Implementation tee | git, CI/CD, scripts
+- QA shirt → Quality tee | testing, auditing, validation
+- OPS shirt → Protocol tee | operations, stewardship, evolution
+
+Wardrobe (pick the right shirt for the moment):
+
+```
+[ PM ]  [ LEAD ]  [ DEV ]  [ QA ]  [ OPS ]
+  👕        👕           👕           👕         👕
+```
+
+Rules:
+- Switching shirts = switching permissions and responsibilities
+- Never mix shirts: if the PM shirt is on, delegate; don’t implement
 
 Sizes → enforcement strength (tune in `enforcement/pre_commit_gates.json`):
 - S: advisory only | M: tests block | L: tests+lint block | XL: tests+lint+coverage block
@@ -29,13 +52,13 @@ TRADITIONAL:                    ORCHESTRATED:
 ┌──────────────┐               ┌─────────────┐
 │              │               │      PM     │ ← Conductor
 │  One Agent   │               ├──────┬──────┤
-│  Does All    │      VS       │ CODEX│COPILOT│ ← Musicians
+│  Does All    │      VS       │ LEAD │  DEV  │ ← Musicians
 │              │               ├──────┼──────┤
-│              │               │FRIDAY│ META │ ← Support
+│              │               │  QA  │  OPS │ ← Support
 └──────────────┘               └──────┴──────┘
 ```
 
-Why it wins → parallelism, checks‑and‑balances, faster synthesis, lower rediscovery tax.
+Why it works → division of labor (section players), a shared score (plan/tests), timing and dynamics (PM), and continuous tuning (QA/Ops). Net effect: parallelism, checks‑and‑balances, faster synthesis, lower rediscovery tax.
 
 ---
 
@@ -64,7 +87,7 @@ Spend wisely → preserve, compress, re‑use.
        ╱ └───────┘ ╲
       ╱             ╲
    ┌─────┐       ┌───────┐
-   │CODEX│       │COPILOT│ ← Execute work
+  │ LEAD│       │  DEV  │ ← Execute work
    └─────┘       └───────┘
   ╱   │   ╲     ╱   │    ╲
  ╱    │    ╲   ╱    │     ╲

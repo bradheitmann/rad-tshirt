@@ -2,21 +2,39 @@
 
 Punchy guide to context lifecycle + role clarity.
 
+Slide index
+- Why → #why
+- Roles → #roles-t-shirt-stays-on-roles-dont-change
+- Visuals → #visuals
+- Lifecycle → #lifecycle-capture--compress--hydrate--rehydrate
+- Capsule → #minimal-capsule-template
+- Enforcement → #enforcement-that-helps-sizes
+- Patterns → #patterns-that-work
+- Do these first → #do-these-first
+- Metrics → #success-metrics
+
 ## Why
 
 - Models forget; teams shouldn’t
 - RAD_TSHIRT = guardrails; this guide = habits
 - Outcomes: less rediscovery, more parallelism
 
-## Roles (t‑shirt stays on, roles don’t change)
+## Roles (wardrobe of t‑shirts)
 
-- PM (Conductor): orchestrate/delegate only
-- CODEX (Lead engineer): code/test/architect
-- COPILOT (Automation): git/CI/CD/scripts
-- FRIDAY (Quality): test/audit/validate
-- META (Process): monitor/evolve/enforce
+- PM shirt (Conductor): orchestrate/delegate only
+- LEAD shirt (Lead engineer): code/test/architect
+- DEV shirt (Implementation): git/CI/CD/scripts
+- QA shirt (Quality): test/audit/validate
+- OPS shirt (Operations): monitor/evolve/enforce
 
-Tip: keep orchestrators and implementers distinct.
+Wardrobe
+
+```
+[ PM ]  [ LEAD ]  [ DEV ]  [ QA ]  [ OPS ]
+	👕        👕           👕           👕         👕
+```
+
+Rule: switching shirts = switching permissions; never mix shirts.
 
 ## Visuals
 
@@ -27,11 +45,17 @@ TRADITIONAL:                    ORCHESTRATED:
 ┌──────────────┐               ┌─────────────┐
 │              │               │      PM     │ ← Conductor
 │  One Agent   │               ├──────┬──────┤
-│  Does All    │      VS       │ CODEX│COPILOT│ ← Musicians
+│  Does All    │      VS       │ LEAD │  DEV  │ ← Musicians
 │              │               ├──────┼──────┤
-│              │               │FRIDAY│ META │ ← Support
+│              │               │  QA  │  OPS │ ← Support
 └──────────────┘               └──────┴──────┘
 ```
+
+Why it works
+- Division of labor: section players (LEAD/DEV/QA/Ops) specialize and move in parallel
+- Shared score: specs, tests, and gates keep everyone on the same page
+- Timing & dynamics: PM conducts, sets tempo, and handles transitions
+- Continuous tuning: QA/Ops listen for drift, enforce thresholds, and keep the ensemble tight
 
 Context as a Finite Budget
 
@@ -55,7 +79,7 @@ Delegation Pyramid
 		 ╱ └───────┘ ╲
 		╱             ╲
 	┌─────┐       ┌───────┐
-	│CODEX│       │COPILOT│ ← Execute work
+		│ LEAD│       │  DEV  │ ← Execute work
 	└─────┘       └───────┘
   ╱   │   ╲     ╱   │    ╲
  ╱    │    ╲   ╱    │     ╲
