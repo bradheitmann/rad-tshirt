@@ -1,0 +1,38 @@
+#!/usr/bin/env sh
+# RAD TSHIRT v4.0 master pre-commit hook
+# Portable: use project-relative path
+
+ROOT_DIR=$(git rev-parse --show-toplevel 2>/dev/null)
+if [ -z "$ROOT_DIR" ]; then
+  echo "RAD: Not a git repository (skipping gates)" >&2
+  exit 0
+fi
+ENGINE="$ROOT_DIR/RAD_TSHIRT_v4.0/enforcement/enforcement_engine.js"
+CONFIG="$ROOT_DIR/RAD_TSHIRT_v4.0/enforcement/pre_commit_gates.json"
+
+# Fallback to _spinout folder name if v4.0 folder not found
+if [ ! -f "$ENGINE" ] || [ ! -f "$CONFIG" ]; then
+  ALT_ENGINE="$ROOT_DIR/RAD_TSHIRT_v4.0_spinout/enforcement/enforcement_engine.js"
+  ALT_CONFIG="$ROOT_DIR/RAD_TSHIRT_v4.0_spinout/enforcement/pre_commit_gates.json"
+  if [ -f "$ALT_ENGINE" ] && [ -f "$ALT_CONFIG" ]; then
+    ENGINE="$ALT_ENGINE"
+    CONFIG="$ALT_CONFIG"
+  fi
+fi
+
+if [ ! -f "$ENGINE" ] || [ ! -f "$CONFIG" ]; then
+  echo "RAD: enforcement engine or config not found. Looked for:\n  $ENGINE\n  $CONFIG" >&2
+  exit 1
+fi
+
+NODE_BIN="node"
+# Run engine with its config cwd (directory of CONFIG)
+ENF_DIR="$(dirname "$CONFIG")"
+cd "$ENF_DIR" || exit 1
+$NODE_BIN "$ENGINE"
+STATUS=$?
+if [ $STATUS -ne 0 ]; then
+  echo "RAD: pre-commit gates failed (see output above)" >&2
+  exit $STATUS
+fi
+exit 0

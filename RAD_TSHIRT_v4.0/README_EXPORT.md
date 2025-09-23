@@ -1,4 +1,4 @@
-# RAD_v3.0_TSHIRT — Template Export Guide
+# RAD_TSHIRT_v4.0 — Template Export Guide
 
 This folder is a self-contained, portable template for RAD v3.0 (TSHIRT). Copy it into any repository to enable the same quality protocol: manifest validation, OMNIVORE gates (1–4), and an opt-in pre-commit enforcement engine.
 
@@ -10,7 +10,7 @@ This folder is a self-contained, portable template for RAD v3.0 (TSHIRT). Copy i
 
 ## Quick start (drop-in to another repo)
 1) Copy the folder into the target repository:
-   - Place `RAD_v3.0_TSHIRT/` at the repo root.
+  - Place `RAD_TSHIRT_v4.0/` at the repo root.
 
 2) Ensure your repo has these npm scripts in package.json (adjust to your setup):
    - test, test:coverage, lint, omnivore:gate1..4
@@ -30,10 +30,10 @@ This folder is a self-contained, portable template for RAD v3.0 (TSHIRT). Copy i
 
 ## Validate the template
 - Manifest:
-  node RAD_v3.0_TSHIRT/tools/validate_manifest.js
+  node RAD_TSHIRT_v4.0/tools/validate_manifest.js
 
 - Enforcement engine (runs configured gates):
-  node RAD_v3.0_TSHIRT/enforcement/enforcement_engine.js
+  node RAD_TSHIRT_v4.0/enforcement/enforcement_engine.js
 
 Expected: "All pre-commit gates passed." when gates are green.
 
@@ -46,7 +46,7 @@ Expected: "All pre-commit gates passed." when gates are green.
 ## Sandbox option (Agent Chat Protocol)
 When using the agent chat protocol, you can isolate runtime artifacts by setting an environment variable before running your tooling/tests:
 
-- AGENT_SANDBOX_DIR=/absolute/path/for/protocol
+AGENT_SANDBOX_DIR=/absolute/path/for/protocol
 
 This redirects protocol artifacts (protocol/agents.json, logs/, committees/, discussions/) into that directory.
 

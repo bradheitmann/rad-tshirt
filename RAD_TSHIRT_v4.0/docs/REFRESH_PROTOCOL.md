@@ -1,4 +1,4 @@
-# RAD v3.0 TSHIRT — Protocol Refresher
+# RAD TSHIRT v4.0 — Protocol Refresher
 
 Use on violations or drift. Graduated to conserve context.
 

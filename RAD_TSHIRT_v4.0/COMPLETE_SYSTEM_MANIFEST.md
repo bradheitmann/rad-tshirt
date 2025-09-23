@@ -1,4 +1,4 @@
-# RAD v3.0 TSHIRT — COMPLETE SYSTEM MANIFEST
+# RAD TSHIRT v4.0 — COMPLETE SYSTEM MANIFEST
 
 Authoritative index of files required for this distribution. Validator: tools/validate_manifest.js
 

@@ -1,4 +1,4 @@
-# RAD v3.0 TSHIRT
+# RAD TSHIRT v4.0
 
 A portable, minimal-yet-enforced edition of RAD protocols that combines behavioral kernels with BMAD-grade code-level gates.
 
@@ -13,16 +13,16 @@ A portable, minimal-yet-enforced edition of RAD protocols that combines behavior
 
 ## Quick start
 0) Optional: generate a localized quick start (auto-fills your exact path)
-   - sh RAD_v3.0_TSHIRT/scripts/bootstrap-readme.sh
-   - Open RAD_v3.0_TSHIRT/README_LOCAL.md for copy/paste
+   - sh RAD_TSHIRT_v4.0/scripts/bootstrap-readme.sh
+   - Open RAD_TSHIRT_v4.0/README_LOCAL.md for copy/paste
 1) Install pre-commit gates (dry run first):
-   - sh RAD_v3.0_TSHIRT/scripts/install-precommit.sh --dry-run
-   - sh RAD_v3.0_TSHIRT/scripts/install-precommit.sh
+   - sh RAD_TSHIRT_v4.0/scripts/install-precommit.sh --dry-run
+   - sh RAD_TSHIRT_v4.0/scripts/install-precommit.sh
 2) Validate manifest:
-   - node RAD_v3.0_TSHIRT/tools/validate_manifest.js
+   - node RAD_TSHIRT_v4.0/tools/validate_manifest.js
 3) Review commands and refresher:
-   - RAD_v3.0_TSHIRT/docs/COMMAND_MENU.md
-   - RAD_v3.0_TSHIRT/docs/REFRESH_PROTOCOL.md
+   - RAD_TSHIRT_v4.0/docs/COMMAND_MENU.md
+   - RAD_TSHIRT_v4.0/docs/REFRESH_PROTOCOL.md
 
 ---
 
@@ -41,7 +41,7 @@ This makes all “agent conversation” files go into `RAD_Sandbox/protocol/` so
 
 ```bash
 # Preferred: use the RAD helper script
-source RAD_v3.0_TSHIRT/scripts/sandbox-on.sh
+source RAD_TSHIRT_v4.0/scripts/sandbox-on.sh
 # or one‑liner for a single command (relative path)
 AGENT_SANDBOX_DIR="./RAD_Sandbox" echo "Sandbox is set"
 ```
@@ -65,14 +65,14 @@ ls -la RAD_Sandbox/protocol/logs
 4) Turn OFF the sandbox (optional):
 
 ```bash
-source RAD_v3.0_TSHIRT/scripts/sandbox-off.sh
+source RAD_TSHIRT_v4.0/scripts/sandbox-off.sh
 ```
 
 Notes
 - You don’t have to set the sandbox. If you skip it, compatible tools will write to a local `./protocol/` folder.
 - The sandbox path accepts either `RAD_Sandbox` or `RAD_Sandbox/protocol`; the system handles both.
 - To verify where files are going without any tool installed:
-   - Run: `source RAD_v3.0_TSHIRT/scripts/sandbox-on.sh` (it prints the target folder)
+   - Run: `source RAD_TSHIRT_v4.0/scripts/sandbox-on.sh` (it prints the target folder)
    - Then run the minimal demo above; you’ll see files appear under `RAD_Sandbox/protocol/`
 
 ## Notes

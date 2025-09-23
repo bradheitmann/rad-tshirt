@@ -1,0 +1,74 @@
+{
+  "snapshot_meta": {
+    "exported_at": "2025-09-22T00:00:00Z",
+    "source_project": "RAD_TSHIRT_v4.0",
+    "spinout": true,
+    "workspace_root": null,
+    "user_home": "/Users/bradleyheitmann",
+    "os": "macOS",
+    "shell": "zsh"
+  },
+  "high_level": {
+    "project": "RAD_TSHIRT_v4.0 (standalone spinout)",
+    "recommended_target_path": "/path/to/new/RAD_TSHIRT_v4.0",
+    "notes": "This capsule intentionally excludes source file blobs (you already have them). It contains metadata, operational steps, and small artifacts needed to rehydrate RAD as an independent standalone project."
+  },
+  "required_nonfile_artifacts": {
+    "executable_manifest": "A small manifest listing scripts and hooks that must be executable after rehydration (e.g., enforcement/master_hook, scripts/*.sh)",
+    "env_snapshot": "Node version and package manager recommendation (.nvmrc or node version string)",
+    "lockfiles": "package-lock.json or pnpm-lock.yaml or yarn.lock (copy if you want reproducible installs)",
+    "coverage_artifacts": "coverage/lcov.info and coverage-final.json (if preserving QA history is desired)",
+    "checksums": "SHA-256 manifest for critical scripts/docs to verify integrity",
+    "sandbox_evidence_sample": "Representative logs from RAD_Sandbox/protocol showing agent interaction (optional but recommended)",
+    "installer_behavior_notes": "A note that the current installer may assume git-root-relative paths; a patch to install-precommit.sh to use script-relative fallback is recommended",
+    "git_history_decision": "Decide whether to preserve Git history (git bundle) or start fresh. This capsule assumes start-fresh unless you request a bundle."
+  },
+  "rehydration_contract": {
+    "inputs": ["source file tree for RAD_TSHIRT_v4.0 (you will provide)"] ,
+    "outputs": ["standalone project folder ready for development with scripts executable, README_LOCAL.md generated, optional pre-commit hook installed"],
+    "error_modes": ["target path unwritable", "missing lockfiles (install may produce different deps)", "installer failing because .git not initialised"],
+    "success_criteria": ["README_LOCAL.md present after bootstrap", "scripts and hooks executable", "optional pre-commit hook installed cleanly or instructions provided"]
+  },
+  "minimal_capture_recommendation": {
+    "description": "If you already have source files, capture only the following small artifacts so the snapshot is compact and functional:",
+    "items": [
+      "executable_manifest.txt (ls -l output for scripts and enforcement/master_hook)",
+      "RAD_ENV.txt (node/npm versions or .nvmrc)",
+      "lockfiles (if you want deterministic installs)",
+      "coverage/lcov.info and coverage-final.json (optional)",
+      "RAD_Sandbox_sample_logs/ (optional representative logs)",
+      "RAD_TSHIRT_v4.0_checksums.sha256 (checksum for above items)"
+    ]
+  },
+  "pending_tasks": [
+    {
+      "name": "patch-installer-fallback",
+      "priority": "high",
+      "description": "Add a safe script-relative fallback to scripts/install-precommit.sh so it does not assume the installer lives under a specific git-root path. This makes the installer robust for a spinout.",
+      "required_action": "user confirm patch and whether to retain original behavior as a fallback"
+    },
+    {
+      "name": "generate-executable-manifest-and-checksums",
+      "priority": "high",
+      "description": "Produce the small manifests (modes + checksums) into the capsule so rehydration sets correct executable bits and verifies integrity",
+      "required_action": "allow workspace writes so I can create these files under RAD_TSHIRT_v4.0/"
+    }
+  ],
+  "rehydration_steps_for_spinout": [
+    "Create target folder: mkdir -p /path/to/new/RAD_TSHIRT_v4.0",
+    "Copy the source files (you have these) into the target folder, preserving structure",
+    "Place the capsule artifacts into the target folder (executable_manifest.txt, RAD_ENV.txt, checksums)",
+    "Run: bash scripts/bootstrap-readme.sh to generate README_LOCAL.md",
+    "Make hooks/scripts executable: chmod +x enforcement/master_hook scripts/*.sh",
+    "Decide on pre-commit installation: either run patched scripts/install-precommit.sh or manually copy enforcement/master_hook to .git/hooks/pre-commit after git init",
+    "Initialize git in the new project (git init) and create your new remote; the spinout is independent and should not reference upstream project names."
+  ],
+  "notes": "This capsule is standalone and contains only RAD_TSHIRT_v4.0 metadata and operational artifacts. No external project names or paths are referenced. If you want to preserve upstream commit history, request a separate git bundle; otherwise the recommended path is to 'git init' the new project and start clean.",
+  "questions_for_you": [
+    "Do you want to preserve Git history (git bundle) or start with a fresh repository?",
+    "Which package manager do you prefer for RAD (npm, pnpm, yarn)?",
+    "Which Node version should I record in .nvmrc (or leave unset)?",
+    "Do you want me to apply the 'patch-installer-fallback' now inside this workspace to make the installer robust for the spinout?",
+    "Do you want marketing assets included in the capsule or kept separate?"
+  ]
+}

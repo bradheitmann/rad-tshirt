@@ -15,7 +15,7 @@ function tail(str, n = 2000) {
 }
 
 /**
- * RAD v3.0 TSHIRT Protocol Enforcer
+ * RAD TSHIRT v4.0 Protocol Enforcer
  * Loads pre-commit gate configuration and executes checks in order.
  */
 class ProtocolEnforcer {

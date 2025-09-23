@@ -1,4 +1,4 @@
-# RAD v3.0 TSHIRT — COMMUNICATION
+# RAD TSHIRT v4.0 — COMMUNICATION
 
 Message format (always):
 PM>LEAD: short imperative |C[12%]🟢

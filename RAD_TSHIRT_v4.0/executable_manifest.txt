@@ -1,0 +1,12 @@
+#!/bin/sh
+# Executable manifest for RAD_TSHIRT_v4.0
+# Generated: 2025-09-22
+
+enforcement/master_hook
+scripts/bootstrap-readme.sh
+scripts/install-precommit.sh
+scripts/sandbox-on.sh
+scripts/sandbox-off.sh
+scripts/reset-sandbox.sh
+docs/convert-to-pdf.sh
+scripts/pm.sh

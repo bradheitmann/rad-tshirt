@@ -1,4 +1,4 @@
-# RAD v3.0 TSHIRT — CLEANUP
+# RAD TSHIRT v4.0 — CLEANUP
 
 Purpose: fast, deterministic hygiene before commit/merge. Optimized for pre-commit hooks and CI.
 

@@ -1,4 +1,4 @@
-# RAD v3.0 TSHIRT — Command Menu
+# RAD TSHIRT v4.0 — Command Menu
 
 - /refresh-protocol — Run the graduated refresher (inline → role → full)
 - /handoff — Produce a 500-token capsule then stop

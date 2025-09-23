@@ -5,4 +5,4 @@ This distribution integrates BMAD-derived practices for:
 - Coverage thresholds and CI surfacing
 - Pre-commit quality gates and commit hygiene
 
-Credits: BMAD method authors and maintainers. Adapted for RAD v3.0 TSHIRT portability.
+Credits: BMAD method authors and maintainers. Adapted for RAD TSHIRT v4.0 portability.

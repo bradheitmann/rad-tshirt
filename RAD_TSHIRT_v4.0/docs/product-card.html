@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>RAD TSHIRT v4.0 — Product Card</title>
+  <style>
+    @page { size: A4; margin: 24mm; }
+    body { font-family: Inter, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; color:#111; }
+    .card { max-width:840px; margin:0 auto; padding:28px; border:1px solid #e6e6e6; border-radius:8px; }
+    .header { display:flex; align-items:center; justify-content:space-between; }
+    .title { font-size:26px; font-weight:700; margin:0; }
+    .subtitle { color:#666; margin-top:6px; font-size:13px }
+    .section { margin-top:20px }
+    .features { display:flex; gap:18px; }
+    .col { flex:1 }
+    ul { margin:8px 0 0 20px }
+    .cta { margin-top:22px; display:flex; gap:12px; align-items:center }
+    .button { background:#0b6efd; color:#fff; padding:8px 14px; border-radius:6px; text-decoration:none; font-weight:600 }
+    .muted { color:#666; font-size:13px }
+    .footer { margin-top:28px; border-top:1px solid #eee; padding-top:12px; color:#666; font-size:13px }
+    .badge { background:#eef5ff; color:#0b6efd; padding:6px 8px; border-radius:6px; font-weight:700 }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <div>
+  <h1 class="title">RAD TSHIRT v4.0</h1>
+        <div class="subtitle">Portable QA starter kit • Drop-in template for Node.js projects</div>
+      </div>
+      <div style="text-align:right">
+  <div class="badge">v4.0</div>
+        <div class="muted" style="margin-top:8px">One‑folder • No external CLIs</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <strong>What it is</strong>
+      <p class="muted">A lightweight, self-contained toolkit that provides manifest validation, soft CI gates (tests, lint, determinism), and a small enforcement engine — ready to copy into any Node.js repo.</p>
+    </div>
+
+    <div class="section features">
+      <div class="col">
+        <strong>Key benefits</strong>
+        <ul>
+          <li>Drop‑in portability — copy the folder into a repo and run the gates</li>
+          <li>Low friction — no global installs or special infra</li>
+          <li>Non‑coder friendly docs and one‑page quick starts</li>
+        </ul>
+      </div>
+      <div class="col">
+        <strong>Core components</strong>
+        <ul>
+          <li>Manifest validator (consistency checks)</li>
+          <li>Enforcement engine (gates runner)</li>
+          <li>Sandbox helpers to isolate runtime artifacts</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <strong>Quick start</strong>
+      <ol style="margin:8px 0 0 20px">
+  <li>Copy <code>RAD_TSHIRT_v4.0/</code> into your repo root</li>
+  <li>Run <code>node RAD_TSHIRT_v4.0/tools/validate_manifest.js</code></li>
+  <li>Run <code>node RAD_TSHIRT_v4.0/enforcement/enforcement_engine.js</code></li>
+      </ol>
+    </div>
+
+    <div class="cta">
+      <a class="button" href="#">Download template</a>
+  <div class="muted">Or copy the folder and open <code>RAD_TSHIRT_v4.0/README_LOCAL.md</code> for localized steps.</div>
+    </div>
+
+    <div class="footer">
+      <div><strong>Who it’s for</strong> — engineering teams, PMs, small orgs that want repeatable QA with minimal setup.</div>
+      <div style="margin-top:8px">Next steps: run the gates locally, add to a sample repo, and collect the first evidence artefacts for QA review.</div>
+    </div>
+  </div>
+</body>
+</html>

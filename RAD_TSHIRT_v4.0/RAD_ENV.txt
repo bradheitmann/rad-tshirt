@@ -1,0 +1,10 @@
+# RAD_TSHIRT_v4.0 environment snapshot
+# Generated: 2025-09-22
+# Preferred package manager: pnpm (user choice)
+# Node version to record: not specified by user; leaving blank. To record, set .nvmrc with desired version
+
+# Example if you want to pin to Node 18.x use:
+# 18
+
+# To create .nvmrc with Node 18, run:
+# echo "18" > .nvmrc

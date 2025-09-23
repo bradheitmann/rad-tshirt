@@ -1,4 +1,4 @@
-# RAD v3.0 TSHIRT — HANDOFF (≤500 tokens)
+# RAD TSHIRT v4.0 — HANDOFF (≤500 tokens)
 
 ## What I Was Doing (≤100)
 One sentence problem + current approach.

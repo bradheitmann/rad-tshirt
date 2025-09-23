@@ -16,16 +16,26 @@ else
 fi
 
 HOOK_PATH="$ROOT_DIR/.git/hooks/pre-commit"
-MASTER_HOOK="$ROOT_DIR/RAD_v3.0_TSHIRT/enforcement/master_hook"
+# Prefer master_hook at the project root path, but fall back to script-relative locations
+MASTER_HOOK="$ROOT_DIR/RAD_TSHIRT_v4.0/enforcement/master_hook"
 
+# If the master hook isn't at the expected root-relative path, try script-relative fallbacks
 if [ ! -f "$MASTER_HOOK" ]; then
-  echo "RAD: master_hook not found at $MASTER_HOOK" >&2
-  # For dry-run, continue to show intent even if master_hook missing
-  if [ $DRY_RUN -eq 1 ]; then
-    echo "[DRY-RUN] Would install pre-commit hook to $HOOK_PATH (master_hook missing in current workspace)"
-    exit 0
+  # Candidates: script-relative enforcement folder (if script shipped inside RAD_TSHIRT_v4.0/scripts)
+  CAND1="$SCRIPT_DIR/../enforcement/master_hook"
+  CAND2="$SCRIPT_DIR/../RAD_TSHIRT_v4.0/enforcement/master_hook"
+  if [ -f "$CAND1" ]; then
+    MASTER_HOOK="$CAND1"
+  elif [ -f "$CAND2" ]; then
+    MASTER_HOOK="$CAND2"
+  else
+    echo "RAD: master_hook not found at $MASTER_HOOK or fallback locations" >&2
+    if [ $DRY_RUN -eq 1 ]; then
+      echo "[DRY-RUN] Would install pre-commit hook to $HOOK_PATH (master_hook missing in current workspace and fallbacks)"
+      exit 0
+    fi
+    exit 1
   fi
-  exit 1
 fi
 
 if [ $DRY_RUN -eq 1 ]; then
