@@ -1,45 +1,80 @@
-# Multi‑Agent Orchestration Mastery (RAD_TSHIRT v4.0 Edition)
+# Multi‑Agent Orchestration (RAD_TSHIRT v4.0 Edition)
 
-This is a focused, brand‑neutral synthesis of the context lifecycle from the broader Multi‑Agent Orchestration Mastery guide, tuned for how RAD_TSHIRT v4.0 is used in real projects.
+Punchy guide to context lifecycle + role clarity.
 
-## Why it exists
+## Why
 
-Large models forget; teams don’t have to. RAD_TSHIRT encodes the guardrails (pre‑commit gates) while the orchestration guide encodes the habits (context capture and handoff). Together they:
-- Prevent knowledge loss between sessions and contributors
-- Reduce “rediscovery tax” on every switch
-- Support parallel, multi‑agent workflows with confidence
+- Models forget; teams shouldn’t
+- RAD_TSHIRT = guardrails; this guide = habits
+- Outcomes: less rediscovery, more parallelism
 
-## Roles, at a glance
+## Roles (t‑shirt stays on, roles don’t change)
 
-- PM (Conductor): orchestrates and delegates; does not implement
-- CODEX (Lead engineer): codes, tests, architects
-- COPILOT (Automation): git, CI/CD, scripting
-- FRIDAY (Quality): testing, auditing, validation
-- META (Process): monitors, evolves, and enforces protocol
+- PM (Conductor): orchestrate/delegate only
+- CODEX (Lead engineer): code/test/architect
+- COPILOT (Automation): git/CI/CD/scripts
+- FRIDAY (Quality): test/audit/validate
+- META (Process): monitor/evolve/enforce
 
-Tip: Keep orchestrators and implementers distinct. Delegation is a first‑class task.
+Tip: keep orchestrators and implementers distinct.
 
-## The context lifecycle
+## Visuals
+
+Orchestration vs One Agent
+
+```
+TRADITIONAL:                    ORCHESTRATED:
+┌──────────────┐               ┌─────────────┐
+│              │               │      PM     │ ← Conductor
+│  One Agent   │               ├──────┬──────┤
+│  Does All    │      VS       │ CODEX│COPILOT│ ← Musicians
+│              │               ├──────┼──────┤
+│              │               │FRIDAY│ META │ ← Support
+└──────────────┘               └──────┴──────┘
+```
+
+Context as a Finite Budget
+
+```
+💰 Context Budget Accounting
+┌─────────────────────────────────────────┐
+│ Total Budget: 100%                     │
+│ ├── Orchestration: 15–20%             │
+│ ├── Implementation: 60–70%            │
+│ ├── Quality/Testing: 10–15%           │
+│ └── Reserve/Buffer: 5–10%             │
+└─────────────────────────────────────────┘
+```
+
+Delegation Pyramid
+
+```
+			┌───────┐
+			│  PM   │ ← Makes decisions
+		  ╱│       │╲
+		 ╱ └───────┘ ╲
+		╱             ╲
+	┌─────┐       ┌───────┐
+	│CODEX│       │COPILOT│ ← Execute work
+	└─────┘       └───────┘
+  ╱   │   ╲     ╱   │    ╲
+ ╱    │    ╲   ╱    │     ╲
+[Specialists]  [Specialists] ← Deep expertise
+```
+
+## Lifecycle (capture → compress → hydrate → rehydrate)
 
 1) Capture
-- Append‑only logs of decisions and changes
-- Single attachments directory per thread
-- Standard broadcast channel duplicated into all logs
+- Append‑only logs; single attachments dir; broadcast duplicated into all logs
 
 2) Compress
-- Summarize after meaningful units of work
-- Keep decisions, constraints, and gotchas
-- Prefer structured bullets over prose
+- Summarize per unit; keep decisions/constraints/gotchas; favor bullets
 
 3) Hydrate
-- Rebuild state from the latest capsule + logs
-- Identity first, then tools, then current state
-- Verify tool permissions and boundaries
+- Rebuild from capsule+logs; identity → tools → current state; verify permissions
 
 4) Rehydrate (handoff)
-- Trigger at 30% remaining context, or on strike policy
-- Use a pre‑filled capsule template (identity, work done, WIP, critical context, pending tasks, gotchas, instructions)
-- Target 15 minutes to full confidence
+- Trigger at 30% (or strike policy); use capsule; target 15 minutes
 
 ## Minimal capsule template
 
@@ -71,34 +106,31 @@ HANDOFF NOTES
 - <exact instructions to resume>
 ```
 
-## Enforcement that helps, not hinders
+## Enforcement that helps (sizes)
 
-- Start at “M” size: tests enforced, lint advisory
-- Graduate to “XL”: tests + lint + coverage enforced
-- Tune instantly via `enforcement/pre_commit_gates.json`
-- Hooks are project‑relative and portable; installers have git‑root fallback
+- Start “M”: tests block; lint advisory
+- Grow “XL”: tests+lint+coverage block
+- Tune in `enforcement/pre_commit_gates.json`
+- Hooks portable; installer has git‑root fallback
 
-## Parallelism patterns that work
+## Patterns that work
 
-- Debugging committees (5 agents in parallel) + outside reviewer synthesis
-- Research sweep (3+ agents) then codex synthesis and implementation
-- PM stays orchestration‑only; META watches strike policy and context thresholds
+- Debug committees (5) + outside‑reviewer synthesis
+- Research sweep (3+) → CODEX synthesis → implement
+- PM orchestrates; META watches thresholds/strikes
 
-## What to implement first
+## Do these first
 
-- Context reporting in every message
-- Dehydration at 30% mandatory
-- Tool permissions by role (PM requests exceptions)
-- Communication format and broadcast channel
+- Context reporting each message
+- Dehydrate at 30%
+- Tool permissions by role
+- Broadcast channel + shared format
 
 ## Success metrics
 
-- Handoff success >95%
-- Rehydration <45 minutes to full speed
+- Handoff >95%
+- Rehydrate <45 min
 - Context per task <20%
-- Dehydration time <15 minutes
+- Dehydrate <15 min
 
-See also:
-- `RAD_TSHIRT_v4.0/protocols/HANDOFF.md`
-- `RAD_TSHIRT_v4.0/docs/COMMAND_MENU.md`
-- `RAD_TSHIRT_v4.0/enforcement/pre_commit_gates.json`
+See also → `RAD_TSHIRT_v4.0/protocols/HANDOFF.md`, `RAD_TSHIRT_v4.0/docs/COMMAND_MENU.md`, `RAD_TSHIRT_v4.0/enforcement/pre_commit_gates.json`

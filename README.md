@@ -1,59 +1,130 @@
-# RAD_TSHIRT v4.0
+# RAD_TSHIRT v4.0 — presentation quick tour
 
-A portable, brand‑neutral pre‑commit enforcement kit with docs, protocols, and a zero‑friction installer. It helps non‑coders and engineers ship with confidence by encoding quality gates and a repeatable context lifecycle.
+Portable, brand‑neutral pre‑commit gates + docs + protocols. Drop the folder in, ship with confidence.
 
-- Who it’s for: product leaders, PMs, IC engineers, QA, and anyone who wants “batteries‑included” quality without wiring CI first.
-- What you get: pre‑commit gates (tests, lint, coverage), docs you can hand to stakeholders, handoff/rehydration protocols, and a clean folder you can drop into any repo.
+Who it’s for → PMs, ICs, QA, and product leads who want batteries‑included quality without wiring CI first.
+What you get → tests/lint/coverage gates, handoff/rehydration protocols, and a zero‑friction installer.
 
-## The T‑Shirt Metaphor 👕
+---
 
-RAD_TSHIRT is designed like a great t‑shirt:
+## 👕 The T‑Shirt Metaphor
 
-- Collar (PM): sets direction and keeps shape — orchestration and delegation only.
-- Fabric (CODEX): the body of implementation — coding and architecture.
-- Seams (COPILOT): automation that holds it together — git, CI/CD, scripts.
-- Tag (FRIDAY): quality you can trust — testing, auditing, validation.
-- Care label (META): how to wash and scale it — process stewardship and evolution.
+RAD_TSHIRT fits to your team like a great tee:
 
-Sizes map to enforcement strength:
-- S: advisory checks only (no block) — explore safely.
-- M: tests must pass — lint is advisory.
-- L: tests + lint must pass — coverage is advisory.
-- XL: tests + lint + coverage enforced — production‑ready defaults.
+- Collar (PM) → direction + shape | orchestration only
+- Fabric (CODEX) → implementation | code + tests + architecture
+- Seams (COPILOT) → automation | git, CI/CD, scripts
+- Tag (FRIDAY) → quality mark | testing, auditing, validation
+- Care label (META) → how to scale | process stewardship
 
-You can tune these via `RAD_TSHIRT_v4.0/enforcement/pre_commit_gates.json`.
+Sizes → enforcement strength (tune in `enforcement/pre_commit_gates.json`):
+- S: advisory only | M: tests block | L: tests+lint block | XL: tests+lint+coverage block
 
-## What’s inside
+---
+
+## 🔭 Orchestration vs One Agent
+
+```
+TRADITIONAL:                    ORCHESTRATED:
+┌──────────────┐               ┌─────────────┐
+│              │               │      PM     │ ← Conductor
+│  One Agent   │               ├──────┬──────┤
+│  Does All    │      VS       │ CODEX│COPILOT│ ← Musicians
+│              │               ├──────┼──────┤
+│              │               │FRIDAY│ META │ ← Support
+└──────────────┘               └──────┴──────┘
+```
+
+Why it wins → parallelism, checks‑and‑balances, faster synthesis, lower rediscovery tax.
+
+---
+
+## 💰 Context is a Finite Budget
+
+```
+┌─────────────────────────────────────────┐
+│ Total Budget: 100%                     │
+│ ├── Orchestration: 15–20%             │
+│ ├── Implementation: 60–70%            │
+│ ├── Quality/Testing: 10–15%           │
+│ └── Reserve/Buffer: 5–10%             │
+└─────────────────────────────────────────┘
+```
+
+Spend wisely → preserve, compress, re‑use.
+
+---
+
+## 🧭 Delegation Pyramid
+
+```
+         ┌───────┐
+         │  PM   │ ← Makes decisions
+        ╱│       │╲
+       ╱ └───────┘ ╲
+      ╱             ╲
+   ┌─────┐       ┌───────┐
+   │CODEX│       │COPILOT│ ← Execute work
+   └─────┘       └───────┘
+  ╱   │   ╲     ╱   │    ╲
+ ╱    │    ╲   ╱    │     ╲
+[Specialists]  [Specialists] ← Deep expertise
+```
+
+PM delegates; implementers implement; specialists go deep.
+
+---
+
+## 🔄 Context Journey (handoff triggers)
+
+```
+100% ────→ 70% ────→ 50% ────→ 30% ────→ 0%
+ 🟢        🟡        🟠        🔴       ⚫
+Normal   Delegate  Prepare  DEHYDRATE  Dead
+         Heavily   Handoff   MANDATORY
+```
+
+Dehydrate at 30% → zero knowledge loss, 15‑min rehydration target.
+
+---
+
+## 📦 What’s inside (one folder)
 
 - `RAD_TSHIRT_v4.0/`
-  - `enforcement/` — pre‑commit engine, master hook, and declarative gates
-  - `scripts/` — portable installer with git‑root fallback
-  - `docs/` — product card, command menu, and quick start material
-  - `protocols/` — handoff, communication, and cleanup guides
+  - `enforcement/` → engine, master hook, declarative gates
+  - `scripts/` → portable installer (git‑root fallback)
+  - `docs/` → product card, command menu, quick start
+  - `protocols/` → handoff, communication, cleanup
 
-## Quick start
+---
 
-- Requirements: macOS/Linux, Git, Node.js 18+
-- Install the hook:
-  - cd into the folder: `cd RAD_TSHIRT_v4.0`
-  - run installer: `./scripts/install-precommit.sh` (add `--dry-run` to preview)
-- Commit as usual: the hook enforces your configured gates before allowing the commit.
+## 🚀 Quick start
 
-Optional manual run: open `enforcement/pre_commit_gates.json` and execute your test/lint commands directly. The hook uses those same commands under the hood.
+- Requirements → macOS/Linux, Git, Node 18+
+- Install → `cd RAD_TSHIRT_v4.0 && ./scripts/install-precommit.sh` (add `--dry-run` to preview)
+- Commit normally → your configured gates run before commit
 
-## Multi‑Agent Orchestration & Context Lifecycle
+Manual run → edit `enforcement/pre_commit_gates.json`; run the same scripts directly.
 
-Multi‑agent work shines when your context is preserved and re‑usable. This repo includes a tailored guide that shows how to capture, compress, hydrate, and hand off context with zero drama:
+---
 
-- See: `MULTI_AGENT_ORCHESTRATION_MASTERY_for_RAD_TSHIRT_v4.0.md`
-- Protocols to start with: `RAD_TSHIRT_v4.0/protocols/HANDOFF.md` and `RAD_TSHIRT_v4.0/protocols/COMMUNICATION.md`
+## 🧠 Multi‑Agent & Lifecycle
 
-## Case studies (short)
+Use the visual guide:
+- `MULTI_AGENT_ORCHESTRATION_MASTERY_for_RAD_TSHIRT_v4.0.md`
+- `RAD_TSHIRT_v4.0/protocols/HANDOFF.md`
+- `RAD_TSHIRT_v4.0/protocols/COMMUNICATION.md`
 
-- 4% emergency handoff → 15‑minute recovery with 95% continuity by using a pre‑filled capsule format.
-- Security edge case found in parallel by a 5‑agent debugging committee → fix landed in 2 hours instead of 2 days.
-- Protocol evolution: rehydration streamlined from 7 levels to 4, reducing context overhead by ~50%.
+---
 
-## License
+## ✅ Tiny case studies
 
-MIT. Attribution appreciated but not required.
+- 4% emergency handoff → 15‑minute recovery, ~95% continuity
+- 5‑agent debug committee → 2‑hour fix vs 2 days solo
+- Rehydration protocol v2 → ~50% lower context overhead
+
+---
+
+## 📄 License
+
+MIT
