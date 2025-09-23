@@ -32,8 +32,8 @@ Each role is a different t‑shirt you can put on and take off:
 Wardrobe (pick the right shirt for the moment):
 
 ```
-[ PM ]  [ LEAD ]  [ DEV ]  [ QA ]  [ OPS ]
-  👕        👕           👕           👕         👕
+[ PM ]   [ LEAD ]   [ DEV ]   [ QA ]   [ OPS ]
+  (👕)      (👕)      (👕)      (👕)      (👕)
 ```
 
 Rules:
@@ -66,11 +66,11 @@ Why it works → division of labor (section players), a shared score (plan/tests
 
 ```
 ┌─────────────────────────────────────────┐
-│ Total Budget: 100%                     │
-│ ├── Orchestration: 15–20%             │
-│ ├── Implementation: 60–70%            │
-│ ├── Quality/Testing: 10–15%           │
-│ └── Reserve/Buffer: 5–10%             │
+│ Total Budget: 100%                      │
+│ ├── Orchestration: 15–20%               │
+│ ├── Implementation: 60–70%              │
+│ ├── Quality/Testing: 10–15%             │
+│ └── Reserve/Buffer: 5–10%               │
 └─────────────────────────────────────────┘
 ```
 
@@ -81,17 +81,17 @@ Spend wisely → preserve, compress, re‑use.
 ## 🧭 Delegation Pyramid
 
 ```
-         ┌───────┐
-         │  PM   │ ← Makes decisions
-        ╱│       │╲
-       ╱ └───────┘ ╲
-      ╱             ╲
-   ┌─────┐       ┌───────┐
-  │ LEAD│       │  DEV  │ ← Execute work
-   └─────┘       └───────┘
-  ╱   │   ╲     ╱   │    ╲
- ╱    │    ╲   ╱    │     ╲
-[Specialists]  [Specialists] ← Deep expertise
+       ┌───────┐
+       │  PM   │ ← Makes decisions
+      ╱│       │╲
+     ╱ └───────┘ ╲
+    ╱             ╲
+  ┌───────┐     ┌───────┐
+  │  LEAD │     │  DEV  │ ← Execute work
+  └───────┘     └───────┘
+  ╱   │   ╲     ╱   │   ╲
+ ╱    │    ╲   ╱    │    ╲
+[Specialists] [Specialists] ← Deep expertise
 ```
 
 PM delegates; implementers implement; specialists go deep.

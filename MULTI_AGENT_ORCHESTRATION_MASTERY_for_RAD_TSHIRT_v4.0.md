@@ -30,8 +30,8 @@ Slide index
 Wardrobe
 
 ```
-[ PM ]  [ LEAD ]  [ DEV ]  [ QA ]  [ OPS ]
-	👕        👕           👕           👕         👕
+[ PM ]   [ LEAD ]   [ DEV ]   [ QA ]   [ OPS ]
+  (👕)      (👕)      (👕)      (👕)      (👕)
 ```
 
 Rule: switching shirts = switching permissions; never mix shirts.
@@ -73,17 +73,17 @@ Context as a Finite Budget
 Delegation Pyramid
 
 ```
-			┌───────┐
-			│  PM   │ ← Makes decisions
-		  ╱│       │╲
-		 ╱ └───────┘ ╲
-		╱             ╲
-	┌─────┐       ┌───────┐
-		│ LEAD│       │  DEV  │ ← Execute work
-	└─────┘       └───────┘
-  ╱   │   ╲     ╱   │    ╲
- ╱    │    ╲   ╱    │     ╲
-[Specialists]  [Specialists] ← Deep expertise
+				 ┌───────┐
+				 │  PM   │ ← Makes decisions
+				╱│       │╲
+			 ╱ └───────┘ ╲
+			╱             ╲
+	 ┌───────┐     ┌───────┐
+	 │  LEAD  │     │  DEV   │ ← Execute work
+	 └───────┘     └───────┘
+	╱   │   ╲     ╱   │   ╲
+ ╱    │    ╲   ╱    │    ╲
+[Specialists] [Specialists] ← Deep expertise
 ```
 
 ## Lifecycle (capture → compress → hydrate → rehydrate)
